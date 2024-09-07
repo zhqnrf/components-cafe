@@ -24,7 +24,8 @@
                 <p class="text-gray-600">Rp. 50.000</p>
                 <div class="flex justify-start items-center mt-2">
                     <button id="decrement" class="bg-[#A91D3A] text-white px-2 rounded">-</button>
-                    <span id="quantity" class="text-md px-3">5</span>
+                    <input id="quantity" type="number" class="w-10 text-md text-center border rounded" value="1"
+                        min="1">
                     <button id="increment" class="bg-[#A91D3A] text-white px-2 rounded">+</button>
                 </div>
             </div>
@@ -59,29 +60,39 @@
         const cancelButton = document.getElementById('cancelButton');
         const decrementButton = document.getElementById('decrement');
         const incrementButton = document.getElementById('increment');
-        const quantityDisplay = document.getElementById('quantity');
+        const quantityInput = document.getElementById('quantity');
 
-        let quantity = parseInt(quantityDisplay.textContent);
+        let quantity = parseInt(quantityInput.value);
 
         incrementButton.addEventListener('click', () => {
             quantity++;
-            quantityDisplay.textContent = quantity;
+            quantityInput.value = quantity;
         });
 
         decrementButton.addEventListener('click', () => {
             if (quantity > 1) {
                 quantity--;
-                quantityDisplay.textContent = quantity;
+                quantityInput.value = quantity;
+            }
+        });
+        quantityInput.addEventListener('input', () => {
+            let value = parseInt(quantityInput.value);
+            if (value >= 1) {
+                quantity = value;
+            } else {
+                quantity = 1;
+                quantityInput.value = quantity;
             }
         });
 
-
         closeButton.addEventListener('click', () => {
             modal.style.display = 'none';
+            window.location.href = '/index.html';
         });
 
         cancelButton.addEventListener('click', () => {
             modal.style.display = 'none';
+            window.location.href = '/index.html';
         });
     </script>
 </body>

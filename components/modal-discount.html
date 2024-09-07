@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+
+    <div id="modal" class="fixed bg-white rounded-lg shadow-sm w-[350px] max-h-[500px]">
+        <div class="relative flex items-center mb-4 bg-[#A91D3A] rounded-t-lg p-3 justify-center">
+            <button id="closeButton" class="absolute left-3 text-white text-2xl font-bold">
+                <svg class="stroke-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                </svg>
+            </button>
+            <h2 class="text-xl text-white font-semibold">Discount</h2>
+        </div>
+
+        <div class="px-4 mb-4">
+            <div class="flex">
+                <input type="text" id="redeemCode" placeholder="Enter Redeem Code"
+                    class="flex-grow border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#A91D3A]">
+                <button id="searchButton"
+                    class="ml-2 bg-[#A91D3A] text-white px-4 py-2 rounded-md hover:bg-[#86162e] transition-colors"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <div class="m-4 content overflow-y-auto max-h-[200px]">
+            <div id="itemsContainer">
+                <div
+                    class="my-3 flex border-2 border-[#A91D3A] rounded-md py- text-start text-sl font-bold text-white ">
+                    <span class="bg-[#A91D3A] p-[10px] rounded-l-[2px]">
+                        <p class="mx-3 text-xs">Diskon</p>
+                        <p class="mx-3 text-3xl">70%</p>
+                    </span>
+                    <div class="ms-5 my-auto">
+                        <p class="text-black font-bold text-l"> Diskon 17 Agustus</p>
+                        <p class="text-black font-medium text-xs"> Makanan dan Minuman</p>
+                    </div>
+                </div>
+                <div
+                    class="my-3 flex border-2 border-[#A91D3A] rounded-md py- text-start text-sl font-bold text-white ">
+                    <span class="bg-[#A91D3A] p-[10px] rounded-l-[2px]">
+                        <p class="mx-3 text-xs">Diskon</p>
+                        <p class="mx-3 text-3xl">70%</p>
+                    </span>
+                    <div class="ms-5 my-auto">
+                        <p class="text-black font-bold text-l"> Diskon 17 Agustus</p>
+                        <p class="text-black font-medium text-xs"> Makanan dan Minuman</p>
+                    </div>
+                </div>
+                <div
+                    class="my-3 flex border-2 border-[#A91D3A] rounded-md py- text-start text-sl font-bold text-white ">
+                    <span class="bg-[#A91D3A] p-[10px] rounded-l-[2px]">
+                        <p class="mx-3 text-xs">Diskon</p>
+                        <p class="mx-3 text-3xl">70%</p>
+                    </span>
+                    <div class="ms-5 my-auto">
+                        <p class="text-black font-bold text-l"> Diskon 17 Agustus</p>
+                        <p class="text-black font-medium text-xs"> Makanan dan Minuman</p>
+                    </div>
+                </div>
+            </div>
+            <p id="noDataMessage" class="text-gray-500 text-center mt-4 hidden">No Data</p>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const closeButton = document.getElementById('closeButton');
+        const itemsContainer = document.getElementById('itemsContainer');
+        const noDataMessage = document.getElementById('noDataMessage');
+        const searchButton = document.getElementById('searchButton');
+        const redeemCodeInput = document.getElementById('redeemCode');
+
+        const itemsExist = itemsContainer.children.length > 0;
+
+        if (!itemsExist) {
+            noDataMessage.classList.remove('hidden');
+        }
+
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+            window.location.href = '/index.html';
+        });
+
+        searchButton.addEventListener('click', () => {
+            const redeemCode = redeemCodeInput.value;
+            if (redeemCode) {
+                console.log('Searching for:', redeemCode);
+                alert(`Searching for: ${redeemCode}`);
+            } else {
+                alert('Please enter a redeem code.');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
