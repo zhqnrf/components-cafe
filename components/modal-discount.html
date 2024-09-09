@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-100 flex justify-center items-center h-screen">
@@ -23,25 +22,24 @@
             </button>
             <h2 class="text-xl text-white font-semibold">Discount</h2>
         </div>
-
         <div class="px-4 mb-4">
             <div class="flex">
                 <input type="text" id="redeemCode" placeholder="Enter Redeem Code"
-                    class="flex-grow border-2 border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#A91D3A]">
+                    class="flex-grow border-2 bg-white rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#A91D3A]">
                 <button id="searchButton"
-                    class="ml-2 bg-[#A91D3A] text-white px-4 py-2 rounded-md hover:bg-[#86162e] transition-colors"><svg
-                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="ml-2 bg-[#A91D3A] text-white px-4 py-2 rounded-md hover:bg-[#86162e] transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-search" viewBox="0 0 16 16">
                         <path
                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                    </svg></button>
+                    </svg>
+                </button>
             </div>
         </div>
 
-        <div class="m-4 content overflow-y-auto max-h-[200px]">
+        <div class="m-4 content overflow-y-auto max-h-[200px] scrollbar-hide">
             <div id="itemsContainer">
-                <div
-                    class="my-3 flex border-2 border-[#A91D3A] rounded-md py- text-start text-sl font-bold text-white ">
+                <div class="my-3 flex border-2 border-[#A91D3A] rounded-md py- text-start font-bold text-white">
                     <span class="bg-[#A91D3A] p-[10px] rounded-l-[2px]">
                         <p class="mx-3 text-xs">Diskon</p>
                         <p class="mx-3 text-3xl">70%</p>
@@ -51,8 +49,7 @@
                         <p class="text-black font-medium text-xs"> Makanan dan Minuman</p>
                     </div>
                 </div>
-                <div
-                    class="my-3 flex border-2 border-[#A91D3A] rounded-md py- text-start text-sl font-bold text-white ">
+                <div class="my-3 flex border-2 border-[#A91D3A] rounded-md py- text-start font-bold text-white">
                     <span class="bg-[#A91D3A] p-[10px] rounded-l-[2px]">
                         <p class="mx-3 text-xs">Diskon</p>
                         <p class="mx-3 text-3xl">70%</p>
@@ -62,8 +59,29 @@
                         <p class="text-black font-medium text-xs"> Makanan dan Minuman</p>
                     </div>
                 </div>
-                <div
-                    class="my-3 flex border-2 border-[#A91D3A] rounded-md py- text-start text-sl font-bold text-white ">
+                <div class="my-3 flex border-2 border-[#A91D3A] rounded-md py- text-start font-bold text-white">
+                    <span class="bg-[#A91D3A] p-[10px] rounded-l-[2px]">
+                        <p class="mx-3 text-xs">Diskon</p>
+                        <p class="mx-3 text-3xl">70%</p>
+                    </span>
+                    <div class="ms-5 my-auto">
+                        <p class="text-black font-bold text-l"> Diskon 17 Agustus</p>
+                        <p class="text-black font-medium text-xs"> Makanan dan Minuman</p>
+                    </div>
+                </div>
+                <div class="my-3 flex border-2 border-[#A91D3A] rounded-md py- text-start font-bold text-white">
+                    <span class="bg-[#A91D3A] p-[10px] rounded-l-[2px]">
+                        <p class="mx-3 text-xs">Diskon</p>
+                        <p class="mx-3 text-3xl">70%</p>
+                    </span>
+                    <div class="ms-5 my-auto">
+                        <p class="text-black font-bold text-l"> Diskon 17 Agustus
+                        </p>
+                        <p class="text-black font-medium text-xs"> Makanan dan
+                            Minuman</p>
+                    </div>
+                </div>
+                <div class="my-3 flex border-2 border-[#A91D3A] rounded-md py- text-start font-bold text-white">
                     <span class="bg-[#A91D3A] p-[10px] rounded-l-[2px]">
                         <p class="mx-3 text-xs">Diskon</p>
                         <p class="mx-3 text-3xl">70%</p>
@@ -87,7 +105,6 @@
         const redeemCodeInput = document.getElementById('redeemCode');
 
         const itemsExist = itemsContainer.children.length > 0;
-
         if (!itemsExist) {
             noDataMessage.classList.remove('hidden');
         }
@@ -100,11 +117,22 @@
         searchButton.addEventListener('click', () => {
             const redeemCode = redeemCodeInput.value;
             if (redeemCode) {
-                console.log('Searching for:', redeemCode);
                 alert(`Searching for: ${redeemCode}`);
             } else {
                 alert('Please enter a redeem code.');
             }
+        });
+
+        itemsContainer.addEventListener('mousedown', () => {
+            itemsContainer.style.cursor = 'grabbing';
+        });
+
+        itemsContainer.addEventListener('mouseup', () => {
+            itemsContainer.style.cursor = 'grab';
+        });
+
+        itemsContainer.addEventListener('mouseleave', () => {
+            itemsContainer.style.cursor = 'grab';
         });
     </script>
 
