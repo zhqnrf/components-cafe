@@ -6,34 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/images/icon-no-bg.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+        rel="stylesheet">
 </head>
 
 <body class="flex justify-center items-center bg-fuchsia-600 h-screen">
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 p-10 bg-white shadow-lg rounded-xl">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 p-5 bg-white shadow-lg rounded-xl">
         <a href="/components/modal-cart.html"
-            class="bg-teal-500 px-5 py-5 rounded-full font-bold text-white justify-center hover:bg-teal-600 transition-transform transform hover:scale-105 shadow-md">
-            Cart
+            class="bg-teal-500 p-3 rounded-full font-bold text-white flex justify-center items-center hover:bg-teal-600 transition-transform transform hover:scale-105 shadow-md">
+            <i class="bi bi-cart3 mr-2"></i> Detail
         </a>
         <a href="/components/modal-categories.html"
-            class="bg-sky-500 px-5 py-5 rounded-full font-bold text-white justify-center hover:bg-sky-600 transition-transform transform hover:scale-105 shadow-md">
-            Categories
+            class="bg-sky-500 p-3 rounded-full font-bold text-white flex justify-center items-center hover:bg-sky-600 transition-transform transform hover:scale-105 shadow-md">
+            <i class="bi bi-box mr-2"></i> Categories
         </a>
         <a href="/components/modal-order.html"
-            class="bg-red-500 px-5 py-5 rounded-full font-bold text-white justify-center hover:bg-red-600 transition-transform transform hover:scale-105 shadow-md">
-            Order
+            class="bg-red-500 p-3 rounded-full font-bold text-white flex justify-center items-center hover:bg-red-600 transition-transform transform hover:scale-105 shadow-md">
+            <i class="bi bi-receipt mr-2"></i> Order
         </a>
         <a href="/components/modal-discount.html"
-            class="bg-indigo-500 px-5 py-5 rounded-full font-bold text-white justify-center hover:bg-indigo-600 transition-transform transform hover:scale-105 shadow-md">
-            Discount
+            class="bg-indigo-500 p-3 rounded-full font-bold text-white flex justify-center items-center hover:bg-indigo-600 transition-transform transform hover:scale-105 shadow-md">
+            <i class="bi bi-percent mr-2"></i> Discount
         </a>
         <a href="/components/modal-add-cart.html"
-            class="bg-slate-500 px-5 py-5 rounded-full font-bold text-white justify-center hover:bg-slate-600 transition-transform transform hover:scale-105 shadow-md">
-            Add Cart
+            class="bg-slate-500 p-3 rounded-full font-bold text-white flex justify-center items-center hover:bg-slate-600 transition-transform transform hover:scale-105 shadow-md">
+            <i class="bi bi-cart-plus mr-2"></i> Add Cart
         </a>
         <a href="/components/cart.html"
-            class="bg-pink-500 px-5 py-5 rounded-full font-bold text-white justify-center hover:bg-pink-600 transition-transform transform hover:scale-105 shadow-md">
-            Cart
+            class="bg-pink-500 p-3 rounded-full font-bold text-white flex justify-center items-center hover:bg-pink-600 transition-transform transform hover:scale-105 shadow-md">
+            <i class="bi bi-cart-fill mr-2"></i> Cart
         </a>
+        <a href="/components/modal-delete.html"
+            class="bg-green-500 p-3 rounded-full font-bold text-white flex justify-center items-center hover:bg-green-600 transition-transform transform hover:scale-105 shadow-md">
+            <i class="bi bi-trash3-fill mr-2"></i> Delete
+        </a>
+        <a href="/components/page-not-found.html"
+            class="bg-yellow-500 p-3 rounded-full font-bold text-white flex justify-center items-center hover:bg-yellow-600 transition-transform transform hover:scale-105 shadow-md">
+            <i class="bi bi-exclamation-triangle-fill mr-2"></i> Not Found
+        </a>
+        <a href="/components/page-expired.html"
+            class="bg-black p-3 rounded-full font-bold text-white flex justify-center items-center hover:bg-black transition-transform transform hover:scale-105 shadow-md">
+            <i class="bi bi-hourglass-split mr-2"></i> Expired
+        </a>
+        <!-- <a href="/components/loading.html"
+            class="bg-lime-500 p-3 rounded-full font-bold text-white flex justify-center items-center hover:bg-lime-600 transition-transform transform hover:scale-105 shadow-md">
+            <i class="bi bi-arrow-repeat mr-2"></i> Loading
+        </a> -->
     </div>
 </body>
 

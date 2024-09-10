@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        @property --progress {
+            syntax: "<length-percentage>";
+            inherits: false;
+            initial-value: 0%;
+        }
+
+        [role="progressbar"] {
+            --size: 132px;
+            --bar-width: 20px;
+
+            font-size: 2rem;
+            width: var(--size);
+            aspect-ratio: 1 / 1;
+            margin: 2rem auto;
+            background: conic-gradient(var(--color-dark),
+                    var(--color-dark) var(--progress),
+                    var(--color-dark-glare) 0%);
+            border-radius: 50vmax;
+
+            display: grid;
+            place-items: center;
+
+            /* this works thanks to the @property at the top */
+            transition: --progress 500ms linear;
+
+            /* we only have this role if JS is enabled */
+            /* which means it's safe to hide the message here */
+            >span {
+                display: none;
+            }
+        }
+
+        /* using aria-valuenow, to help enforce using it in the JS */
+        [role="progressbar"]::after {
+            content: attr(aria-valuenow) "%";
+            background: white;
+            width: calc(100% - var(--bar-width));
+            aspect-ratio: 1;
+            border-radius: inherit;
+            display: grid;
+            place-items: center;
+        }
+
+        /* when progress === 100 */
+        [role="progressbar"][aria-valuenow="100"]::after {
+            /* this is kind of hacky, but it allows the percent to be at 100% for a bit before the checkbox comes in, which
+        feels better */
+            animation: progressComplete 0s forwards;
+            animation-delay: 1000ms;
+        }
+
+        @keyframes progressComplete {
+            to {
+                content:
+                    url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUiIGhlaWdodD0iODUiIHZpZXdCb3g9IjUgMzAgNzUgMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0zNS40MjM3IDUzLjczMjdMNjcuOTc4NyAyMS4xNzc3TDcyLjk4OTUgMjYuMTg0MkwzNS40MTk1IDYzLjc1TDEyLjg4NiA0MS4yMTIyTDE3Ljg5MjUgMzYuMjAxNUwzNS40MjM3IDUzLjczMjdaIiBmaWxsPSIjMWYxYTM4Ii8+Cjwvc3ZnPgo=");
+                background: var(--color-success);
+            }
+        }
+
+        /* if js is disabled */
+        .progressbar:not([role="progressbar"]) {
+            position: relative;
+
+            &::after {
+                display: none;
+            }
+
+            span {
+                font-size: 1rem;
+                text-align: center;
+                color: var(--color-success-dark);
+            }
+        }
+
+        @layer general-styling-and-whatnot {
+            :root {
+                --font-base: "Poppins", sans-serif;
+                --color-dark: #000;
+                --color-dark-glare: #e1e1e1;
+                --color-success: #b7334d;
+                --color-success-dark: #A91D3A;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: var(--font-base);
+                color: var(--color-dark);
+                width: min(100% - 3rem, 40ch);
+                margin-inline: auto;
+                margin-block: 3rem;
+            }
+
+            a {
+                color: var(--color-dark);
+
+                &:is(:hover, :focus) {
+                    color: var(--color-success-dark);
+                }
+            }
+
+            /*  
+            if done delete this */
+            .testing-ground {
+                color: var(--color-success);
+                font-weight: bold;
+                background: var(--color-dark);
+                border: 5px solid var(--color-dark-glare);
+                padding: 1rem;
+                margin-block: 3rem;
+
+                display: grid;
+                gap: 1rem;
+            }
+
+            .testing-ground button {
+                cursor: pointer;
+                font: inherit;
+                background: white;
+                color: var(--color-dark);
+                border: 0;
+                padding: 0.5rem;
+
+                &:is(:hover, :focus-visible) {
+                    background: var(--color-success);
+                }
+
+                &:is(:focus-visible) {
+                    outline: 5px solid var(--color-dark-glare);
+                }
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center w-full h-screen">
+
+    <div id="modal" class="bg-white  rounded-lg shadow-sm w-full m-5 flex flex-col justify-center items-center">
+        <div class='progressbar' data-progress="25">
+        </div>
+        <div class="text-black font-bold text-xl  mb-4">Loading</div>
+        <div class="testing-ground">
+            <button data-progress="100">Klik</button>
+        </div>
+    </div>
+
+
+
+</body>
+<script>
+    const progressbar = document.querySelector(".progressbar");
+    let progress = 0;
+
+    function enableProgessBar() {
+        /* if JS is working, we'll enable the progess bar */
+        /* all the styling for it comes from the role="progressbar" */
+        /* and having that removes the no-js message */
+        /* min of 0 and max of 100 are defaults, so we don't need aria-valuemin or -valuemax */
+        progressbar.setAttribute("role", "progressbar");
+        progressbar.setAttribute("aria-valuenow", progress);
+        progressbar.setAttribute("aria-live", "polite");
+    }
+
+    enableProgessBar();
+
+    // for simulating stuff when we click the buttons
+    const testingGround = document.querySelector(".testing-ground");
+    let interval = null;
+
+    function simulateProgress(newProgressValue) {
+        clearInterval(interval);
+        if (newProgressValue === "fake-upload") {
+            simulateUpload();
+        } else {
+            updateProgress(newProgressValue);
+        }
+    }
+
+    testingGround.addEventListener("click", (e) => {
+        if (!e.target.closest("button")) return;
+
+        progress = e.target.dataset.progress;
+        simulateProgress(progress);
+    });
+
+    function updateProgress(progress) {
+        progressbar.setAttribute("aria-valuenow", progress);
+        progressbar.style.setProperty("--progress", progress + "%");
+    }
+
+    function simulateUpload() {
+        // aria-busy prevents it from announcing every change as it keeps updating the progress
+        // make sure to set it false once the progress is finished
+        progressbar.setAttribute("aria-busy", "true");
+        let progress = 0;
+        updateProgress(progress);
+
+        intervalTimer = setInterval(() => {
+            progress += 5;
+            updateProgress(progress);
+            if (progress === 100) {
+                // probably want something to catch errros and also have this set to false then too
+                progressbar.setAttribute("aria-busy", "false");
+                clearInterval(intervalTimer);
+            }
+        }, 500);
+    }
+</script>
+
+</html>
