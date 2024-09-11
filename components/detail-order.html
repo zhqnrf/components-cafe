@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- custom style -->
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: 'Poppins',
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="font-poppins bg-black">
+    <section class="mx-auto w-[360px] pt-6 min-h-[200vh] bg-white">
+        <div class="container w-full">
+            <form action="#">
+                <!-- input -->
+                <div class="wrap px-5">
+                    <h3 class="text-[14px] leading-[21px] font-bold text-black">Detail Buyer</h3>
+                    <label for="name"
+                        class="text-[9px] capitalize font-bold after:content-['*'] after:text-red-500 after:font-bold text-black">name</label>
+                    <input type="text" name="name" id="name"
+                        class="w-full h-[40px] rounded-[6px] border border-black p-5 outline-0 focus:ring-1 focus:ring-[#A91D3A] focus:border-[#A91D3A] transition ease-out duration-100 bg-white">
+                    <label for="wa"
+                        class="mt-3 text-[9px] capitalize font-bold after:content-['*'] after:text-red-500 after:font-bold text-black">whatsapp
+                        number</label>
+                    <input type="text" name="wa" id="wa"
+                        class="w-full h-[40px] rounded-[6px] border border-black p-5 outline-0 focus:ring-1 focus:ring-[#A91D3A] focus:border-[#A91D3A] transition ease-out duration-100 bg-white">
+                </div>
+
+                <!-- card -->
+                <div class="card mt-5 w-[338px] mx-auto rounded-[6px] shadow-2xl">
+                    <div class="cardTitle flex justify-between items-center bg-black px-5 py-3 rounded-t-[6px]">
+                        <h3 class="text-white text-[14px] leading-[21px] font-bold capitalize">order type</h3>
+                        <button type="submit"
+                            class="w-[76px] h-[33px] rounded-[5px] bg-[#A91D3A] text-[10px] font-bold text-white  capitalize">take
+                            home</button>
+                    </div>
+                    <div class="cardContent bg-white rounded-b-lg ">
+                        <div class="block bg-white rounded-lg overflow-hidden shadow-lg mx-2 my-3  ">
+                            <div class="flex items-center  p-2 ">
+                                <img class="w-25  h-25 rounded-md" src="https://via.placeholder.com/100"
+                                    alt="Milk Strawberry">
+                                <div class="ml-4 flex-1">
+                                    <div class="text-black font-bold text-sm">Milk Strawberry</div>
+                                    <p class="text-gray-600 text-xs">Rp. 50.000</p>
+
+                                    <div class="flex justify-start items-center mt-2">
+                                        <button id="decrement" class="bg-[#A91D3A] text-white px-2 rounded">-</button>
+                                        <input id="quantity" type="number"
+                                            class="w-10 text-md text-center border rounded text-black" value="1"
+                                            min="1">
+                                        <button id="increment" class="bg-[#A91D3A] text-white px-2 rounded">+</button>
+                                    </div>
+                                </div>
+
+                                <div class="flex mt-auto ml-4 space-x-2 top-">
+                                    <button class="p-2 mb-1 bg-green-500 rounded-md text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path
+                                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                            <path fill-rule="evenodd"
+                                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                                        </svg>
+                                    </button>
+                                    <button class="p-2 mb-1 bg-red-600 rounded-md text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                                            <path
+                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                                        </svg>
+                                    </button>
+
+                                </div>
+
+                            </div>
+                            <div
+                                class="mx-2 py-2 mt-[2px] item-center text-xs text-black   border-2 border-solid border-black bg-gray-100 rounded-lg p-3 mb-2">
+
+                                <strong>Notes :</strong> Gulanya
+                                dikit
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- cart discount-->
+                <div class=" w-[338px] mx-auto mt-3">
+                    <button type="button"
+                        class="w-full bg-green-500 rounded-[6px] text-sm flex justify-center  p-2 capitalize font-semibold text-white hover:bg-opacity-90 transition duration-300 ease-in-out shadow shadow-2xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            class="bi bi-cart4 fill-white mr-2" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
+                        </svg> add another</button>
+
+                    <!-- point -->
+                    <div
+                        class="flex justify-between items-center mt-3 bg-[#A91D3A] px-5 py-3 rounded-[6px] shadow shadow-2xl">
+                        <p class="capitalize font-semibold text-white text-sm">use 1000 point</p>
+                        <input type="checkbox" class="toggle toggle-sm bg-white" checked="checked" />
+                    </div>
+
+                    <!-- discount -->
+                    <div class="w-full bg-white shadow shadow-2xl mt-3 rounded-[6px] p-2">
+                        <div class="flex justify-between items-center border border-[#A91D3A] p-2 rounded-[3px]">
+                            <p class="text-[#A91D3A] text-[10px] font-medium">10 discount available</p>
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    class="bi bi-arrow-right-square-fill fill-[#A91D3A]" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- detail payment -->
+                    <div class="w-full rounded-[6px] shadow shadow-2xl mt-3">
+                        <div class="bg-[#A91D3A] rounded-t-[6px] px-5 py-3">
+                            <p class="capitalize font-semibold text-[10px] text-white">detail payment</p>
+                        </div>
+                        <div class="flex justify-between px-5 py-3">
+                            <div class="title">
+                                <p class="text-black capitalize text-[10px] font-semibold pb-1">sub total
+                                </p>
+                                <p class="text-black uppercase text-[10px] pb-1">ppn 10%</p>
+                                <p class="text-black capitalize text-[10px]">application</p>
+                            </div>
+                            <div class="price">
+                                <p class="text-black text-[10px] pb-1 font-semibold">Rp. 150.000</p>
+                                <p class="text-black text-[10px] pb-1">Rp. 10.000</p>
+                                <p class="text-black text-[10px]">Rp. 10.000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-[360px] fixed bottom-0 z-50">
+                    <div class="bg-[#A91D3A] p-5 flex justify-between items-center mt-20 ">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="bi bi-cart4 fill-white mr-2 h-[30px] w-[30px]" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
+                            </svg>
+                            <p class="capitalize font-semibold text-[12px] text-white">total:rp. 130.000</p>
+                        </div>
+                        <button type="submit"
+                            class="w-[76px] h-[33px] rounded-[5px] bg-black text-[10px] font-bold text-white capitalize">pay</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+
+<script>
+    const Counters = document.querySelectorAll('.jumlah')
+    const plusButtons = document.querySelectorAll('.plus')
+    const minusButtons = document.querySelectorAll('.min')
+
+    plusButtons.forEach(function (button, index) {
+        button.addEventListener('click', function () {
+            incrementCount(index)
+        })
+    })
+    minusButtons.forEach(function (button, index) {
+        button.addEventListener('click', function () {
+            decrementCount(index)
+        })
+    })
+
+    function incrementCount(index) {
+        const jumlah = Counters[index].querySelector('.count')
+        let count = parseInt(jumlah.textContent, 10)
+        count++
+        jumlah.textContent = count
+
+        const inputJumlah = Counters[index].querySelector('input[type="hidden"]')
+        inputJumlah.value = count
+        // console.log(inputJumlah)
+
+    }
+
+    function decrementCount(index) {
+        const jumlah = Counters[index].querySelector('.count')
+        let count = parseInt(jumlah.textContent, 10)
+        if (count > 0) {
+            count--
+            jumlah.textContent = count
+
+            const inputJumlah = Counters[index].querySelector('input[type="hidden"]')
+            inputJumlah.value = count
+
+        }
+    }
+</script>
+
+<script>
+    const modal = document.getElementById('modal');
+    const closeButton = document.getElementById('closeButton');
+    const decrementButton = document.getElementById('decrement');
+    const incrementButton = document.getElementById('increment');
+    const quantityInput = document.getElementById('quantity');
+    const noDataMessage = document.getElementById('noDataMessage');
+    const itemsContainer = document.getElementById('itemsContainer');
+    const itemsExist = itemsContainer.children.length > 0;
+
+    let quantity = parseInt(quantityInput.value);
+
+    incrementButton.addEventListener('click', () => {
+        quantity++;
+        quantityInput.value = quantity;
+    });
+
+    decrementButton.addEventListener('click', () => {
+        if (quantity > 1) {
+            quantity--;
+            quantityInput.value = quantity;
+        }
+    });
+    quantityInput.addEventListener('input', () => {
+        let value = parseInt(quantityInput.value);
+        if (value >= 1) {
+            quantity = value;
+        } else {
+            quantity = 1;
+            quantityInput.value = quantity;
+        }
+    });
+
+    closeButton.addEventListener('click', () => {
+        window.location.href = '/index.html';
+    });
+
+    if (!itemsExist) {
+        noDataMessage.classList.remove('hidden');
+    } else {
+        noDataMessage.classList.add('hidden');
+    }
+</script>
+
+</html>

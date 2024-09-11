@@ -1,42 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 * {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 input[type="number"] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
-
 
 input[type="number"] {
-    appearance: none;
-    outline: none;
-    border: none;
-    background-color: transparent;
-    text-align: center;
+  appearance: none;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  text-align: center;
 }
-
 
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-
-.scrollable {
-    cursor: grab;
+z .scrollable {
+  cursor: grab;
 }
 
 .scrollable:active {
-    cursor: grabbing;
+  cursor: grabbing;
 }

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="bg-black flex justify-center items-center h-screen">
+    <div id="page" class="flex flex-col justify-between bg-white shadow-sm h-screen w-[360px]">
+        <div class=" flex items-center   px-3 pt-4 pb-2  h-[56px]">
+            <div class="item ms-3"></div>
+            <p class="text-xl text-black font-bold">Profil
+            </p>
+            <button id="closeButton" class="text-black text-2xl font-bold ms-[238px]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                </svg>
+            </button>
+        </div>
+        <div class="my-1 content overflow-y-auto grow scrollbar-hide">
+            <div id="itemsContainer">
+                <div class="max-w-lg mx-auto p-5 bg-white shadow-lg rounded-lg">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center  rounded-full p-3 ring-[#A91D3A] ring-1">
+                            <span class="text-[#A91D3A] font-bold text-sm"> Point : 100</span>
+                        </div>
+                    </div>
+
+                    <!-- Form Fields -->
+                    <form class="space-y-4">
+                        <!-- Name -->
+                        <div>
+                            <label class="block  font-bold text-black mb-1 text-sm">Name</label>
+                            <input type="text"
+                                class="w-full text-black text-xs bg-white px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
+                                value="Mardiyanto">
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label class="block  font-bold text-black mb-1 text-sm">Email</label>
+                            <input type="email"
+                                class="w-full text-black text-xs bg-white px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
+                                value="mardiyanto@gmail.com">
+                        </div>
+
+                        <!-- WhatsApp No -->
+                        <div>
+                            <label class="block  font-bold text-black mb-1 text-sm">Whatsapp No</label>
+                            <input type="text"
+                                class="w-full text-black text-xs bg-white px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
+                                value="089509512660">
+                        </div>
+
+                        <!-- Province -->
+                        <div>
+                            <label class="block  font-bold text-black mb-1 text-sm">Province</label>
+                            <input type="text"
+                                class="w-full text-black text-xs bg-white px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
+                                value="Jawa Timur">
+                        </div>
+
+                        <!-- City -->
+                        <div>
+                            <label class="block  font-bold text-black mb-1 text-sm">City</label>
+                            <input type="text"
+                                class="w-full text-black text-xs bg-white px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
+                                value="Surabaya">
+                        </div>
+
+                        <!-- Address Detail -->
+                        <div>
+                            <label class="block  font-bold text-black mb-1 text-sm">Address Detail</label>
+                            <input type="text"
+                                class="w-full text-black text-xs bg-white px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
+                                value="Jl Kalibokor Selatan No.8">
+                        </div>
+
+                        <!-- Place and Date of Birth -->
+                        <div>
+                            <label class="block  font-bold text-black mb-1 text-sm">Place and Date Birth</label>
+                            <input type="text"
+                                class="w-full text-black text-xs bg-white px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
+                                value="Surabaya, 13 Januari 2007">
+                        </div>
+
+                        <!-- Age -->
+                        <div>
+                            <label class="block  font-bold text-black mb-1 text-sm">Age</label>
+                            <input type="text"
+                                class="w-full text-black text-xs bg-white px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
+                                value="21">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+<script>
+    const closeButton = document.getElementById('closeButton');
+    closeButton.addEventListener('click', () => {
+        window.location.href = '/index.html';
+    });
+</script>
+
+</html>
